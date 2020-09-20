@@ -1,4 +1,4 @@
-# Simple code for an instagram bot
+ # Simple code for an instagram bot
 
 ##########################################################
 # importing the libraries required
@@ -52,7 +52,6 @@ class Instabot:
 
     def home(self):
 
-        self.driver_func()
         time.sleep(1)
         home_button = self.driver.find_element_by_class_name("Fifk5")
         home_button.click()
