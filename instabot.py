@@ -1,4 +1,4 @@
- # Simple code for an instagram bot
+  # Simple code for an instagram bot
 
 ##########################################################
 # importing the libraries required
@@ -177,7 +177,25 @@ class Instabot:
             "/html/body/div[4]/div/div/div[1]/div/div[2]")
         cancel_button.click()
         time.sleep(1)
+    
+    # navigate to a hashtag
+    def nav_hashtag(self, hashtag):
+        
+        self.driver_func()
+        time.sleep(1)
+        self.driver.get("{}/explore/tags/{}/".format(self.insta_url, hashtag))
+ 
+    # liking 10 hashtag posts
+    def like_hashtag_posts(self, hashtag):
 
+        self.nav_hashtag(hashtag)
+        time.sleep(1)
+        self.like_posts()
+        time.sleep(1)
+        self.driver.get("{}/{}/".format(self.insta_url, user))
+        
+        
+        
 #############################################################
 
 # main
@@ -185,24 +203,22 @@ class Instabot:
 if __name__ == '__main__':
 
     print('''
-
           _____                  _                ____            _
          |_   _|                | |              |  _ \          | |
            | |    _ ___    ___  | |_     __ _    | |_) |   ___   | |_
            | |   |  _  |  / __| | __/  /  _| |   |  _ <   / _ \  | __/
           _| |_  | | | |  \ \   | |__  | (_| |   | |_) | | (_) | | |__
          |_____| |_| |_| |___/  \____| \___\_|   |____/   \___/  \____|
-
             ''')
 
     # reading the input username and password
     username = input("Username : ")
     password = input("Password : ")
-    ig_bot = Instabot(username, password)
+    ig_bot = Instabot("iam_python_bot", "itsmeb2s")
 
     print("""----Functions----\n\n1)Login to home page\n2)Follow suggested users(10)\n3)Visit a profile
 4)Follow a person\n5)Like a friend's posts(20)\n6)Follow a friend's followers(10)\n7)Unfollow a person
-8)Unfollow 10 recent following\n""")
+8)Unfollow 10 recent following\n9)Visit a hashtag page\n10)Like the posts in a hashtag page(20)\n""")
 
     operation = int(
         input("Select any (Enter the number corrsponding to the required function): "))
@@ -218,14 +234,16 @@ if __name__ == '__main__':
         6: ig_bot.follow_nav_user_followers,
         7: ig_bot.unfollow_nav_user,
         8: ig_bot.unfollow,
+        9: ig_bot.nav_hashtag,
+        10:ig_bot.like_hashtag_posts
     }
 
     # actions which we need to pass an argument
-    actions = [3, 4, 5, 6, 7]
+    actions = [3, 4, 5, 6, 7, 9, 10]
 
     if operation in actions:
 
-        user = input("Enter the insta id of the person : ")
+        user = input("Enter the insta id of the person / Hashtag : ")
         operations.get(operation)(user)
 
     else:
