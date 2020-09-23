@@ -16,5 +16,5 @@
  * Following the followers of a person
  * Unfollow a person
  * Unfollowing 10 recent followers
- * Visit a hastag page
+ * Visit a hashtag page
  * Like the recent 10 hashtag posts
