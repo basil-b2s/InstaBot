@@ -214,7 +214,7 @@ if __name__ == '__main__':
     # reading the input username and password
     username = input("Username : ")
     password = input("Password : ")
-    ig_bot = Instabot("iam_python_bot", "itsmeb2s")
+    ig_bot = Instabot(username, password)
 
     print("""----Functions----\n\n1)Login to home page\n2)Follow suggested users(10)\n3)Visit a profile
 4)Follow a person\n5)Like a friend's posts(20)\n6)Follow a friend's followers(10)\n7)Unfollow a person
