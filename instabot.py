@@ -1,4 +1,4 @@
-  # Simple code for an instagram bot
+# Simple code for an instagram bot
 
 ##########################################################
 # importing the libraries required
